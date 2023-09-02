@@ -15,7 +15,7 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
-import "./styles.module.scss";
+
 
 interface Props {
   /**
@@ -25,9 +25,22 @@ interface Props {
   window?: () => Window;
 }
 
-const StyledLink = styled(Link)`
+const AppBarLink = styled(Link)`
   color: #fff;
   text-decoration: none;
+
+  &:visited {
+    color: 
+  }
+`;
+
+const DrawerLink = styled(Link)`
+  color: #black;
+  text-decoration: none;
+
+  &:visited {
+    color: black;
+  }
 `;
 
 const drawerWidth = 240;
@@ -56,7 +69,7 @@ export const Header = (props: Props): JSX.Element => {
               <ListItem key={item} disablePadding>
                 <ListItemButton sx={{ textAlign: "center" }}>
                   <ListItemText
-                    primary={<StyledLink to={`/`}>{item}</StyledLink>}
+                    primary={<DrawerLink to={`/`}>{item}</DrawerLink>}
                   />
                 </ListItemButton>
               </ListItem>
@@ -67,11 +80,11 @@ export const Header = (props: Props): JSX.Element => {
                 <ListItemButton sx={{ textAlign: "center" }}>
                   <ListItemText
                     primary={
-                      <StyledLink
+                      <DrawerLink
                         to={`/${item.toLowerCase().replace(" ", "-")}`}
                       >
                         {item}
-                      </StyledLink>
+                      </DrawerLink>
                     }
                   />
                 </ListItemButton>
@@ -114,15 +127,15 @@ export const Header = (props: Props): JSX.Element => {
               } else if (item === "Home") {
                 return (
                   <Button key={item} sx={{ color: "#fff" }}>
-                    <StyledLink to={`/`}>{item}</StyledLink>
+                    <AppBarLink to={`/`}>{item}</AppBarLink>
                   </Button>
                 );
               } else {
                 return (
                   <Button key={item} sx={{ color: "#fff" }}>
-                    <StyledLink to={`/${item.toLowerCase().replace(" ", "-")}`}>
+                    <AppBarLink to={`/${item.toLowerCase().replace(" ", "-")}`}>
                       {item}
-                    </StyledLink>
+                    </AppBarLink>
                   </Button>
                 );
               }
