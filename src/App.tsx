@@ -1,26 +1,8 @@
 import React from "react";
-import {
-  Route,
-  createBrowserRouter,
-  createRoutesFromElements,
-  RouterProvider,
-} from "react-router-dom";
-import Home from "./containers/Home";
-import Login from "./containers/Login";
-import Register from "./containers/Register";
-import Header from "./components/Header";
+import { RouterProvider } from "react-router-dom";
+import router from "./router";
 
-const router = createBrowserRouter(
-  createRoutesFromElements(
-    <Route path="/" element={<Header />}>
-      <Route index element={<Home />} />
-      <Route path="login" element={<Login />} />
-      <Route path="register" element={<Register />} />
-    </Route>
-  )
-);
-
-function App({ routes }) {
+function App(): JSX.Element {
   return (
     <>
       <RouterProvider router={router} />
