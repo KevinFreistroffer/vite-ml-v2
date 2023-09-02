@@ -16,7 +16,6 @@ import Button from "@mui/material/Button";
 import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 
-
 interface Props {
   /**
    * Injected by the documentation to work in an iframe.
@@ -30,7 +29,7 @@ const AppBarLink = styled(Link)`
   text-decoration: none;
 
   &:visited {
-    color: 
+    color: ;
   }
 `;
 
@@ -57,7 +56,11 @@ export const Header = (props: Props): JSX.Element => {
   };
 
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
+    <Box
+      onClick={handleDrawerToggle}
+      sx={{ textAlign: "center" }}
+      data-testid="app-header-drawer"
+    >
       <Typography variant="h6" sx={{ my: 2 }}>
         MUI
       </Typography>
@@ -100,7 +103,7 @@ export const Header = (props: Props): JSX.Element => {
     window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ height: 64, display: "flex" }}>
+    <Box sx={{ height: 64, display: "flex" }} data-testid="app-header">
       <CssBaseline />
       <AppBar component="nav" sx={{ height: 64 }}>
         <Toolbar sx={{ minHeight: 64 }}>
