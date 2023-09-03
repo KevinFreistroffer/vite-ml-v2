@@ -1,4 +1,5 @@
-import { render } from "@testing-library/react";
+import { render, within, screen } from "@testing-library/react";
+
 import Error from "../pages/Error";
 import Home from "../pages/Home";
 import LinearRegression from "../pages/LinearRegression";
@@ -20,6 +21,9 @@ export const customRender = (options?: any) => {
   );
   render(ui, { ...options });
 };
+
+export const getHeader = () => screen.getByTestId("app-header");
+export const getNavItems = () => within(getHeader()).getAllByRole("link");
 
 // re-export everything
 export * from "@testing-library/react";
