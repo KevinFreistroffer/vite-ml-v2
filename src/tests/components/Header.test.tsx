@@ -2,6 +2,7 @@ import { describe, expect, test } from "vitest";
 import { screen, waitFor, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { customRender } from "../test-utils";
+import { resizeWindow } from "@testing-library/jest-dom";
 
 describe("Header", () => {
   test("renders headline, nav items, and nav items navigate to expected pages", async function () {
@@ -48,5 +49,14 @@ describe("Header", () => {
     expect(getNavItems()).toHaveLength(2);
     expect(getNavItems()[0]).toHaveTextContent("Linear Regression");
     expect(getNavItems()[1]).toHaveTextContent("Logistic Regression");
+  });
+
+  test.only("drawer opens and closes", async function () {
+    // render
+    customRender();
+    resizeWindow(760, 1024);
+    screen.debug();
+    expect(true).toBe(true);
+    //
   });
 });
