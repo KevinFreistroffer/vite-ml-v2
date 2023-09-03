@@ -27,9 +27,10 @@ interface Props {
 const AppBarLink = styled(Link)`
   color: #fff;
   text-decoration: none;
+  text-transform: none;
 
   &:visited {
-    color: ;
+    color: white;
   }
 `;
 

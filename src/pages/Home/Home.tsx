@@ -1,40 +1,12 @@
-import React from "react";
+import PageLayout from "../../components/PageLayout";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
 
 export const Home = (): JSX.Element => {
   return (
-    <div data-testid="home-page">
-      <h1>fdsafdsafsd</h1>
-      <h1>home</h1>
-      <h1>home</h1>
-      <h1>home</h1>
-      <h1>home</h1>
-      <h1>home</h1>
-      <h1>home</h1>
-      <h1>home</h1>
-      <h1>home</h1>
-      <h1>home</h1>
-      <h1>home</h1>
-      <h1>home</h1>
-      <h1>home</h1>
-      <h1>home</h1>
-      <h1>home</h1>
-      <h1>home</h1>
-      <h1>home</h1>
-      <h1>home</h1>
-      <h1>home</h1>
-      <h1>home</h1>
-      <h1>home</h1>
-      <h1>home</h1>
-      <h1>home</h1>
-      <h1>home</h1>
-      <h1>home</h1>
-      <h1>home</h1>
-      <h1>home</h1>
-      <h1>home</h1>
-      <h1>home</h1>
-      <h1>home</h1>
-      <h1>home</h1>
-      <h1>home</h1>
-    </div>
+    <PageLayout data-testid="home-page">
+      <p>Select an algorithm </p>
+      <div></div>
+    </PageLayout>
   );
 };

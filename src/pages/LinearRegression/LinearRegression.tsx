@@ -1,5 +1,9 @@
-import React from "react";
+import PageLayout from "../../components/PageLayout";
 
 export const LinearRegression = (): JSX.Element => {
-  return <div data-testid="linear-regression-page">abcdefg</div>;
+  return (
+    <PageLayout data-testid="linear-regression-page">
+      Linear Regression
+    </PageLayout>
+  );
 };

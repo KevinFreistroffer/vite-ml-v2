@@ -1,36 +1,11 @@
 import { describe, expect, test } from "vitest";
-import { render, screen, waitFor, within } from "@testing-library/react";
+import { screen, waitFor, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import Root from "../../pages/Root";
-import {
-  MemoryRouter,
-  Route,
-  RouterProvider,
-  Routes,
-  createMemoryRouter,
-  createRoutesFromElements,
-} from "react-router-dom";
-import LogisticRegression from "../../pages/LogisticRegression";
-import LinearRegression from "../../pages/LinearRegression";
-import Error from "../../pages/Error";
-import Home from "../../pages/Home";
+import { customRender } from "../test-utils";
 
 describe("Header", () => {
   test("renders headline, nav items, and nav items navigate to expected pages", async function () {
-    render(
-      <MemoryRouter>
-        <Routes>
-          <Route path="/" element={<Root />} errorElement={<Error />}>
-            <Route index element={<Home />} />
-            <Route path="linear-regression" element={<LinearRegression />} />
-            <Route
-              path="logistic-regression"
-              element={<LogisticRegression />}
-            />
-          </Route>
-        </Routes>
-      </MemoryRouter>
-    );
+    customRender();
 
     const getHeader = () => screen.getByTestId("app-header");
     const getNavItems = () => within(getHeader()).getAllByRole("link");
