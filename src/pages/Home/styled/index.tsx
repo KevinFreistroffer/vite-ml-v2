@@ -1,11 +1,7 @@
 import styled from "styled-components";
 import EmojiObjectsIcon from "@mui/icons-material/EmojiObjects";
 
-export const StyledCaption = styled.p`
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-`;
+export const StyledTitle = styled.h2``;
 
 export const StyledSelectionContainer = styled.div`
   position: relative;

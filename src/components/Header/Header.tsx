@@ -63,7 +63,7 @@ export const Header = (props: Props): JSX.Element => {
       data-testid="app-header-drawer"
     >
       <Typography variant="h6" sx={{ my: 2 }}>
-        MUI
+        <Link to={`/`}>{title}</Link>
       </Typography>
       <Divider />
       <List>
@@ -117,8 +117,12 @@ export const Header = (props: Props): JSX.Element => {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            {title}
+          <Typography
+            variant="h3"
+            component="div"
+            sx={{ flexGrow: 1, fontSize: { md: "2rem" } }}
+          >
+            <Link to={`/`}>{title}</Link>
           </Typography>
           <Box sx={{ display: { xs: "none", sm: "none", md: "block" } }}>
             {navItems.map((item) => {

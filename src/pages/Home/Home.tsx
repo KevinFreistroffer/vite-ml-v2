@@ -18,7 +18,7 @@ import { Link } from "react-router-dom";
 export const Home = (): JSX.Element => {
   return (
     <PageLayout data-testid="home-page">
-      <Typography variant="h2" gutterBottom>
+      <Typography variant="h2" gutterBottom color={"secondary"}>
         Select an algorithm
       </Typography>
       <div>
