@@ -5,14 +5,6 @@ import { styled } from "styled-components";
 import EmojiObjectsIcon from "@mui/icons-material/EmojiObjects";
 import Typography from "@mui/material/Typography";
 
-import {
-  StyledAlgorithmName,
-  StyledTitle,
-  StyledIcon,
-  StyledOverlay,
-  StyledSelection,
-  StyledSelectionContainer,
-} from "./styled";
 import { Link } from "react-router-dom";
 
 export const Home = (): JSX.Element => {

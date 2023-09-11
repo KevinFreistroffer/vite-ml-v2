@@ -1,10 +1,8 @@
 import styled from "styled-components";
 
-export const PageLayout = styled.div`
+export const PageLayout = styled.div<{ justifyContent?: string }>`
+  margin: auto;
   display: flex;
-  width: 100%;
-  height: 100%;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 `;

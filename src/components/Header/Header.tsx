@@ -104,9 +104,12 @@ export const Header = (props: Props): JSX.Element => {
     window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ height: 64, display: "flex" }} data-testid="app-header">
+    <Box
+      sx={{ height: 64, display: "flex", width: "100%" }}
+      data-testid="app-header"
+    >
       <CssBaseline />
-      <AppBar component="nav" sx={{ height: 64 }}>
+      <AppBar component="nav" sx={{ height: 64 }} position="static">
         <Toolbar sx={{ minHeight: 64 }}>
           <IconButton
             color="inherit"
