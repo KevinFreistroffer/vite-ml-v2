@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Caption = styled.p`
-margin-bottom: 5rem;
+  margin-bottom: 7rem;
   font-size. 1.5rem;
   font-weight: 100;
 `;
@@ -9,5 +9,9 @@ margin-bottom: 5rem;
 export const ButtonsContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+
+  button {
+    flex: 1;
+  }
 `;

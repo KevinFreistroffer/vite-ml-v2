@@ -1,4 +1,6 @@
+import { useEffect } from "react";
 import {
+  Divider,
   FormControl,
   FormControlLabel,
   FormLabel,
@@ -15,6 +17,7 @@ import "./styles.scss";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 import { ButtonsContainer, Caption } from "./styled";
+import { getUsers } from "../../services/aws";
 
 enum EVariableType {
   SingleVariable = "Single Variable",
@@ -27,6 +30,13 @@ export interface IVariableType {
 
 export const LinearRegression = (): JSX.Element => {
   const [variableType, setVariableType] = useState<IVariableType>();
+
+  useEffect(() => {
+    (async () => {
+      await getUsers();
+    })();
+  }, []);
+
   const [columnNames, setColumNames] = useState<string[] | null>(null);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -87,12 +97,16 @@ export const LinearRegression = (): JSX.Element => {
         <Caption>
           Select whether the CSV you'll upload is predicting from 1 variable, or
           multiple variables.
+          <Divider />
         </Caption>
+
         <div id="form-container">
           <FormControl>
-            <Typography variant="h2">
+            <Typography variant="h2" sx={{ marginBottom: "2rem" }}>
               Is this single or multi variable?
             </Typography>
+
+            <Button>What does this mean?</Button>
 
             <ButtonsContainer id="buttons-container">
               <Button
@@ -101,10 +115,10 @@ export const LinearRegression = (): JSX.Element => {
                 sx={{ mr: 1 }}
                 color="secondary"
               >
-                <Link to="/linear-regression">Linear Regression</Link>
+                Single
               </Button>
               <Button size="large" variant="outlined" sx={{ mr: 1 }}>
-                <Link to="/logistic-regression">Logistic Regression</Link>
+                Multiple
               </Button>
             </ButtonsContainer>
           </FormControl>
@@ -141,7 +155,18 @@ export const LinearRegression = (): JSX.Element => {
             ))}
           </ul>
         </div> */}
-        <button onClick={readFile}>Read CSV</button>
+        <button
+          onClick={readFile}
+          style={{
+            position: "fixed",
+            top: "1rem",
+            left: "1rem",
+            background: "black",
+            color: "white",
+          }}
+        >
+          Read CSV
+        </button>
       </div>
     </PageLayout>
   );
