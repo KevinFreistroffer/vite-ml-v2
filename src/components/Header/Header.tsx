@@ -66,37 +66,39 @@ export const Header = (props: Props): JSX.Element => {
         <Link to={`/`}>{title}</Link>
       </Typography>
       <Divider />
-      <List>
-        {navItems.map((item) => {
-          if (item === "Home") {
-            return (
-              <ListItem key={item} disablePadding>
-                <ListItemButton sx={{ textAlign: "center" }}>
-                  <ListItemText
-                    primary={<DrawerLink to={`/`}>{item}</DrawerLink>}
-                  />
-                </ListItemButton>
-              </ListItem>
-            );
-          } else {
-            return (
-              <ListItem key={item} disablePadding>
-                <ListItemButton sx={{ textAlign: "center" }}>
-                  <ListItemText
-                    primary={
-                      <DrawerLink
-                        to={`/${item.toLowerCase().replace(" ", "-")}`}
-                      >
-                        {item}
-                      </DrawerLink>
-                    }
-                  />
-                </ListItemButton>
-              </ListItem>
-            );
-          }
-        })}
-      </List>
+      <nav data-testid="desktop-navigation" role="navigation">
+        <List>
+          {navItems.map((item) => {
+            if (item === "Home") {
+              return (
+                <ListItem key={item} disablePadding>
+                  <ListItemButton sx={{ textAlign: "center" }}>
+                    <ListItemText
+                      primary={<DrawerLink to={`/`}>{item}</DrawerLink>}
+                    />
+                  </ListItemButton>
+                </ListItem>
+              );
+            } else {
+              return (
+                <ListItem key={item} disablePadding>
+                  <ListItemButton sx={{ textAlign: "center" }}>
+                    <ListItemText
+                      primary={
+                        <DrawerLink
+                          to={`/${item.toLowerCase().replace(" ", "-")}`}
+                        >
+                          {item}
+                        </DrawerLink>
+                      }
+                    />
+                  </ListItemButton>
+                </ListItem>
+              );
+            }
+          })}
+        </List>
+      </nav>
     </Box>
   );
 
@@ -138,13 +140,18 @@ export const Header = (props: Props): JSX.Element => {
               } else if (item === "Home") {
                 return (
                   <Button key={item} sx={{ color: "#fff" }}>
-                    <AppBarLink to={`/`}>{item}</AppBarLink>
+                    <AppBarLink role="link" to={`/`}>
+                      {item}
+                    </AppBarLink>
                   </Button>
                 );
               } else {
                 return (
                   <Button key={item} sx={{ color: "#fff" }}>
-                    <AppBarLink to={`/${item.toLowerCase().replace(" ", "-")}`}>
+                    <AppBarLink
+                      role="link"
+                      to={`/${item.toLowerCase().replace(" ", "-")}`}
+                    >
                       {item}
                     </AppBarLink>
                   </Button>

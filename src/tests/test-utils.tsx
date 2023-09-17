@@ -23,7 +23,8 @@ export const customRender = (options?: any) => {
 };
 
 export const getHeader = () => screen.getByTestId("app-header");
-export const getNavItems = () => within(getHeader()).getAllByRole("link");
+export const getHeaderNav = () => screen.getByTestId("desktop-navigation");
+export const getNavItems = () => within(getHeaderNav()).getAllByRole("link");
 
 // re-export everything
 export * from "@testing-library/react";
