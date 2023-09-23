@@ -31,12 +31,6 @@ export interface IVariableType {
 export const LinearRegression = (): JSX.Element => {
   const [variableType, setVariableType] = useState<IVariableType>();
 
-  useEffect(() => {
-    (async () => {
-      await getUsers();
-    })();
-  }, []);
-
   const [columnNames, setColumNames] = useState<string[] | null>(null);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
