@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import LinearRegression from "./pages/LinearRegression";
 import LogisticRegression from "./pages/LogisticRegression";
 import Error from "./pages/Error";
+// delete
 
 const router = createBrowserRouter(
   createRoutesFromElements(
