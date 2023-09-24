@@ -3,7 +3,9 @@ pipeline {
 
     stages {
         stage('checkout') {
-            git branch: 'main',url: 'https://github.com/KevinFreistroffer/vite-ml-v2.git'
+            steps {
+                git branch: 'main',url: 'https://github.com/KevinFreistroffer/vite-ml-v2.git'
+            }
         }
         stage('Build') {
             steps {
