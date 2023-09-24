@@ -1,17 +1,33 @@
 pipeline {
-     agent any
-     stages {
-        stage("Build") {
-            steps {
-                sh "sudo npm install"
-                sh "sudo npm run build"
-            }
+  agent {
+    docker {
+     image 'node:6-alpine'
+     args '-p 3000:3000'
+    }
+  }
+  environment {
+    CI = 'true'
+    HOME = '.'
+    npm_config_cache = 'npm-cache'
+  }
+  stages {
+    stage('Install Packages') {
+      steps {
+        sh 'npm install'
+      }
+    }
+    stage('Test and Build') {
+      parallel {
+        stage('Run Tests') {
+          steps {
+            sh 'npm run test'
+          }
         }
-        stage("Deploy") {
-            steps {
-                sh "sudo rm -rf /var/www/jenkins-react-app"
-                sh "sudo cp -r ${WORKSPACE}/build/ /var/www/jenkins-react-app/"
-            }
+        stage('Create Build Artifacts') {
+          steps {
+            sh 'npm run build'
+          }
         }
+      }
     }
 }
