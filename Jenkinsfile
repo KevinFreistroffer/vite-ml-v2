@@ -8,10 +8,10 @@ pipeline {
                 sh 'npm install' 
             }
         }
-        stage('Deploy') {
-            steps {
-                // Your deployment steps here (e.g., deploying to a test server)
-            }
-        }
+        // stage('Deploy') {
+        //     steps {
+        //         // Your deployment steps here (e.g., deploying to a test server)
+        //     }
+        // }
     }
 }
