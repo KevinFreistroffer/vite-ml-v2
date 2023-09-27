@@ -12,10 +12,5 @@ pipeline {
                 sh 'npm run build' 
             }
         }
-        // stage('Deploy') {
-        //     steps {
-        //         // Your deployment steps here (e.g., deploying to a test server)
-        //     }
-        // }
     }
 }
