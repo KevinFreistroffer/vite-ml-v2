@@ -9,7 +9,7 @@ pipeline {
         stage('Build') {
             steps {
                 // Your build steps here (e.g., compiling code, running tests)
-                sh 'npm run build' 
+                bat 'npm run build' 
             }
         }
     }
