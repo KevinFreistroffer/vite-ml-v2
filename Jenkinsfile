@@ -4,7 +4,7 @@ pipeline {
         stage('checkout') {
             steps {
                 git branch: 'main',url: 'https://github.com/KevinFreistroffer/vite-ml-v2.git'
-                bat 'npm run install'
+                bat 'npm install'
             }
         }
         stage('Build') {
