@@ -13,11 +13,5 @@ pipeline {
                 bat 'npm run build' 
             }
         }
-        stage('Build') {
-            steps {
-                // Your build steps here (e.g., compiling code, running tests)
-                bat 'npm run build' 
-            }
-        }
     }
 }
