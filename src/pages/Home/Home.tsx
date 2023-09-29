@@ -1,8 +1,6 @@
 import PageLayout from "../../components/PageLayout";
-import Box from "@mui/material/Box";
+
 import Button from "@mui/material/Button";
-import { styled } from "styled-components";
-import EmojiObjectsIcon from "@mui/icons-material/EmojiObjects";
 import Typography from "@mui/material/Typography";
 
 import { Link } from "react-router-dom";
