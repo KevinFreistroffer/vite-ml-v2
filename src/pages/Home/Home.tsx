@@ -11,7 +11,7 @@ export const Home = (): JSX.Element => {
   return (
     <PageLayout data-testid="home-page">
       <Typography variant="h2" gutterBottom color={"secondary"}>
-        Select an algorithm
+        Select an algorithmz
       </Typography>
       <div>
         <Button
