@@ -1,7 +1,6 @@
-import React from "react";
-import { Outlet } from "react-router-dom";
-import Header from "../../components/Header";
-import { styled } from "styled-components";
+import { Outlet } from 'react-router-dom';
+import Header from '../../components/Header';
+import { styled } from 'styled-components';
 
 const Container = styled.div`
   display: flex;
@@ -22,12 +21,12 @@ const Main = styled.main`
 `;
 
 export const Root = (): JSX.Element => {
-  return (
-    <Container>
-      <Header />
-      <Main>
-        <Outlet />
-      </Main>
-    </Container>
-  );
+    return (
+        <Container>
+            <Header />
+            <Main>
+                <Outlet />
+            </Main>
+        </Container>
+    );
 };
