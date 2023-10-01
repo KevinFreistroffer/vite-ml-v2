@@ -1,5 +1,4 @@
 import PageLayout from "../../components/PageLayout";
-import React from "react";
 
 export const LogisticRegression = (): JSX.Element => {
   return (

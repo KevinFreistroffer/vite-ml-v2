@@ -1,23 +1,11 @@
-import { useEffect } from "react";
-import {
-  Divider,
-  FormControl,
-  FormControlLabel,
-  FormLabel,
-  Radio,
-  RadioGroup,
-} from "@mui/material";
+import { Divider, FormControl } from "@mui/material";
 import PageLayout from "../../components/PageLayout";
 import Typography from "@mui/material/Typography";
 import { useState } from "react";
 import * as tf from "@tensorflow/tfjs";
-import LogisticRegression from "pages/LogisticRegression";
-import styled from "styled-components";
 import "./styles.scss";
 import Button from "@mui/material/Button";
-import { Link } from "react-router-dom";
 import { ButtonsContainer, Caption } from "./styled";
-import { getUsers } from "../../services/aws";
 
 enum EVariableType {
   SingleVariable = "Single Variable",
@@ -29,13 +17,9 @@ export interface IVariableType {
 }
 
 export const LinearRegression = (): JSX.Element => {
-  const [variableType, setVariableType] = useState<IVariableType>();
+  const [variableType, setVariableType] = useState<EVariableType>();
 
   const [columnNames, setColumNames] = useState<string[] | null>(null);
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setVariableType((event.target as HTMLInputElement).value as IVariableType);
-  };
 
   const [file, setFile] = useState<File | null>(null);
 
@@ -108,14 +92,25 @@ export const LinearRegression = (): JSX.Element => {
                 variant="outlined"
                 sx={{ mr: 1 }}
                 color="secondary"
+                onClick={() => {
+                  setVariableType(EVariableType.SingleVariable);
+                }}
               >
                 Single
               </Button>
-              <Button size="large" variant="outlined" sx={{ mr: 1 }}>
+              <Button
+                size="large"
+                variant="outlined"
+                sx={{ mr: 1 }}
+                onClick={() => {
+                  setVariableType(EVariableType.MultiVariable);
+                }}
+              >
                 Multiple
               </Button>
             </ButtonsContainer>
           </FormControl>
+          <div>{columnNames?.length}</div>
           {variableType ? (
             <div>
               <Typography variant="h2">Upload your data</Typography>
