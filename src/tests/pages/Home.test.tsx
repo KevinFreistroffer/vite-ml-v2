@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { screen, waitFor, within } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import { customRender } from "../test-utils";
 
 describe("Home", () => {
