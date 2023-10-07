@@ -1,7 +1,9 @@
+import '@testing-library/jest-dom';
 import { describe, expect, test } from 'vitest';
 import { screen } from '@testing-library/react';
 import { customRender, getNavItems } from '../test-utils';
 import userEvent from '@testing-library/user-event';
+import 'jest-dom/extend-expect';
 
 describe('Logistic Regression page', () => {
     // test Logistic Regression page is rendered
