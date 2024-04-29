@@ -33,5 +33,11 @@ module.exports = {
         'unused-imports/no-unused-imports': 'error',
         'react/no-unescaped-entities': 0,
         'unused-imports/no-unused-vars': ['warn', { vars: 'all', varsIgnorePattern: '^_', args: 'after-used', argsIgnorePattern: '^_' }],
+        'react-hooks/exhaustive-deps': 'error',
+    },
+    settings: {
+        react: {
+            version: 'detect',
+        },
     },
 };

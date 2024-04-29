@@ -9,11 +9,11 @@ export const Home = (): JSX.Element => {
         document.title = 'Home | ML Algorithms';
     }, []);
 
-    useEffect(() => {
-        fetch('http://localhost:3000/accounts', { method: 'GET' })
-            .then((res) => res.json())
-            .then((data) => console.log(data));
-    }, []);
+    // useEffect(() => {
+    //     fetch('http://localhost:3000/accounts', { method: 'GET' })
+    //         .then((res) => res.json())
+    //         .then((data) => console.log(data));
+    // }, []);
     return (
         <PageLayout data-testid="home-page">
             <Typography variant="h2" gutterBottom color={'secondary'}>

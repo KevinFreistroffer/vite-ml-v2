@@ -1,11 +1,12 @@
 import { Divider, FormControl } from '@mui/material';
 import PageLayout from '../../components/PageLayout';
 import Typography from '@mui/material/Typography';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import * as tf from '@tensorflow/tfjs';
 import './styles.scss';
 import Button from '@mui/material/Button';
 import { ButtonsContainer, Caption } from './styled';
+import tfvis from '@tensorflow/tfjs-vis';
 
 enum EVariableType {
     SingleVariable = 'Single Variable',
@@ -16,7 +17,62 @@ export interface IVariableType {
     variableType: EVariableType;
 }
 
+interface IOriginalCarData {
+    Miles_per_Gallon: number;
+    Cylinders: number;
+    Displacement: number;
+    Horsepower: number;
+    Weight_in_lbs: number;
+    Acceleration: number;
+    Year: number;
+    Origin: string;
+    Name: string;
+}
+
+interface ICar {
+    mpg: number;
+    horsepower: number;
+}
+
 export const LinearRegression = (): JSX.Element => {
+    const [data, setData] = useState<tfvis.Point2D[]>();
+
+    useEffect(() => {
+        (async () => {
+            const carsDataResponse = await fetch('https://storage.googleapis.com/tfjs-tutorials/carsData.json');
+            const data = await carsDataResponse.json();
+
+            // convert the data to mpg and horsepower
+            const cleaned: tfvis.Point2D[] = data
+                .map((car: IOriginalCarData) => ({
+                    mpg: car.Miles_per_Gallon,
+                    horsepower: car.Horsepower,
+                }))
+                .filter((car: ICar) => car.mpg != null && car.horsepower != null);
+
+            if (cleaned?.length) {
+                setData(cleaned);
+            }
+        })();
+    }, []);
+
+    useEffect(() => {
+        if (data?.length && tfvis.render) {
+            (async () => {
+                await tfvis.render.scatterplot(
+                    { name: 'Horsepower v MPG' },
+                    { values: data },
+                    {
+                        xLabel: 'Horsepower',
+                        yLabel: 'MPG',
+                        height: 300,
+                    }
+                );
+            })();
+        }
+    }, [data]);
+
+    // ==============================================================
     const [variableType, setVariableType] = useState<EVariableType>();
 
     const [columnNames, setColumNames] = useState<string[] | null>(null);
